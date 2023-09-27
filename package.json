@@ -1,0 +1,24 @@
+{
+  "name": "open-payments-sdk-snippets",
+  "displayName": "Open Payments SDK Snippets",
+  "description": "Open Payments SDK Snippets",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/snippets.code-snippets"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "Create unauthenticated client": {
+        "prefix": "opuc",
+        "body": [
+            "import { createUnauthenticatedClient } from \"@interledger/open-payments\";"
+            "",
+            "const client = createUnauthenticatedClient({});"
+        ],
+        "description": "Creates an unauthenticated OP client"
+    }
+}
