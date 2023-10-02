@@ -1,11 +1,232 @@
 {
-    "Create unauthenticated client": {
-        "prefix": "opuc",
+    "createUnauthenticatedClient": {
+        "prefix": "op:uc",
         "body": [
             "import { createUnauthenticatedClient } from \"@interledger/open-payments\";",
             "",
-            "const client = createUnauthenticatedClient({});"
+            "const client = await createUnauthenticatedClient({});"
         ],
         "description": "Creates an unauthenticated OP client"
+    },
+
+    "createAuthenticatedClient": {
+        "prefix": "op:ac",
+        "body": [
+            "import { createAuthenticatedClient } from \"@interledger/open-payments\";",
+            "",
+            "const client = await createAuthenticatedClient({",
+            "   keyId: ${1:'<KEY_ID>'},",
+            "   paymentPointer: ${2:'<PAYMENT_POINTER>'},",
+            "   privateKey: ${3:'<PRIVATE_KEY>'}",
+            "})"
+        ],
+        "description": "Creates an authenticated OP client"
+    },
+
+    "getPaymentPointerInformation": {
+        "prefix": "op:pp",
+        "body": [
+            "const paymentPointer = await client.paymentPointer.get({",
+            "   url: ${1:'<PAYMENT_POINTER_URL>'},",
+            "})"
+        ],
+        "description": "Get payment pointer information"
+    },
+
+    "getPaymentPointerKeys": {
+        "prefix": "op:pp:keys",
+        "body": [
+            "const paymentPointerKeys = await client.paymentPointer.getKeys({",
+            "   url: ${1:'<PAYMENT_POINTER_URL>'},",
+            "})"
+        ],
+        "description": "Get payment pointer keys"
+    },
+
+    "revokeGrant": {
+        "prefix": "op:grant:revoke",
+        "body": [
+            "await client.grant.cancel({",
+            "    accessToken: ${1:'<CONTINUE_ACCESS_TOKEN>'},",
+            "    url: ${2:'<CONTINUE_URI>'},",
+            "});"
+        ],
+        "description": "Revoke a grant"
+    },
+
+    "requestGrant": {
+        "prefix": "op:grant",
+        "body": [
+            "import { isPendingGrant } from \"@interledger/open-payments\";",
+            "",
+            "const grant = await client.grant.request(",
+            "   {",
+            "       url: ${1:'<AUTH_SERVER>'},",
+            "   },",
+            "   {",
+            "       access_token: {",
+            "           access: [",
+            "               {",
+            "                   type: 'quote',",
+            "                   actions: ['read', 'read-all', 'create'],",
+            "               },",
+            "               {",
+            "                   type: 'incoming-payment',",
+            "                   actions: ['read', 'read-all', 'list', 'list-all', 'create', 'complete'],",
+            "               },",
+            "               {",
+            "                   identifier: ${2:'<PAYMENT_POINTER>'},",
+            "                   type: 'outgoing-payment',",
+            "                   actions: ['read', 'read-all', 'list', 'list-all', 'create'],",
+            "                   limits: {",
+            "                       debitAmount: {",
+            "                           value: ${3:'<VALUE>'},",
+            "                           assetCode: ${4:'<ASSET_CODE>'},",
+            "                           assetScale: ${5:'<ASSET_SCALE>'},",
+            "                       },",
+            "                       receiveAmount: {",
+            "                           value: ${6:'<VALUE>'},",
+            "                           assetCode: ${7:'<ASSET_CODE>'},",
+            "                           assetScale: ${8:'<ASSET_SCALE>'},",
+            "                       },",
+            "                   },",
+            "               },",
+            "           ],",
+            "       },",
+            "       interact: {",
+            "           start: ['redirect'],",
+            "           finish: {",
+            "               method: 'redirect',",
+            "               uri: ${9:'<REDIRECT_URI>'},",
+            "               nonce: ${10:'<NONCE>'},",
+            "           },",
+            "       },",
+            "   },",
+            ");",
+            "",
+            "if (!isPendingGrant(grant)) {",
+            "   throw new Error('Expected interactive grant');",
+            "}"
+        ],
+        "description": "Request a grant"
+    },
+
+    "continueGrant": {
+        "prefix": "op:grant:continue",
+        "body": [
+            "const grant = await client.grant.continue(",
+            "   {",
+            "       accessToken: ${1:'<CONTINUE_ACCESS_TOKEN>'},",
+            "       url: ${2:'<CONTINUE_URI>'},",
+            "   },",
+            "   {",
+            "       interact_ref: ${3:'<INTERACT_REF>'},",
+            "   },",
+            ");"
+        ],
+        "description": "Continue a grant"
+    },
+
+    "requestIncomingPaymentGrant": {
+        "prefix": "op:grant:ip",
+        "body": [
+            "import { isPendingGrant } from \"@interledger/open-payments\";",
+            "",
+            "const grant = await client.grant.request(",
+            "   {",
+            "       url: ${1:'<AUTH_SERVERL>'},",
+            "   },",
+            "   {",
+            "       access_token: {",
+            "           access: [",
+            "               {",
+            "                   type: 'incoming-payment',",
+            "                   actions: ['list', 'list-all', 'read', 'read-all', 'complete', 'create'],",
+            "               },",
+            "           ],",
+            "       },",
+            "   },",
+            ");",
+            "",
+            "if (isPendingGrant(grant)) {",
+            "   throw new Error('Expected non-interactive grant');",
+            "}"
+        ],
+        "description": "Request an incoming payment grant"
+    },
+
+    "requestOutgoingPaymentGrant": {
+        "prefix": "op:grant:op",
+        "body": [
+            "import { isPendingGrant } from \"@interledger/open-payments\";",
+            "",
+            "const grant = await client.grant.request(",
+            "   {",
+            "       url: ${1:'<AUTH_SERVER>'},",
+            "   },",
+            "   {",
+            "       access_token: {",
+            "           access: [",
+            "               {",
+            "                   identifier: ${2:'<PAYMENT_POINTER>'},",
+            "                   type: 'outgoing-payment',",
+            "                   actions: ['list', 'list-all', 'read', 'read-all', 'create'],",
+            "                   limits: {",
+            "                       debitAmount: {",
+            "                           value: ${3:'<VALUE>'},",
+            "                           assetCode: ${4:'<ASSET_CODE>'},",
+            "                           assetScale: ${5:'<ASSET_SCALE>'},",
+            "                       },",
+            "                       receiveAmount: {",
+            "                           value: ${6:'<VALUE>'},",
+            "                           assetCode: ${7:'<ASSET_CODE>'},",
+            "                           assetScale: ${8:'<ASSET_SCALE>'},",
+            "                       },",
+            "                   },",
+            "               },",
+            "           ],",
+            "       },",
+            "       interact: {",
+            "           start: ['redirect'],",
+            "           finish: {",
+            "               method: 'redirect',",
+            "               uri: ${9:'<FINISH_URI>'},",
+            "               nonce: ${10:'<NONCE>'},",
+            "           },",
+            "       },",
+            "   },",
+            ");",
+            "",
+            "if (!isPendingGrant(grant)) {",
+            "   throw new Error('Expected interactive grant');",
+            "}"
+        ],
+        "description": "Request an outgoing payment grant"
+    },
+
+    "requestQuoteGrant": {
+        "prefix": "op:grantRequestQuoteNonInteractive",
+        "body": [
+            "const grant = await client.grant.request(",
+            "   {",
+            "       url: ${1:'<AUTH_SERVER>'},",
+            "   },",
+            "   {",
+            "       access_token: {",
+            "           access: [",
+            "               {",
+            "                   type: 'quote',",
+            "                   actions: ['create', 'read', 'read-all'],",
+            "               },",
+            "           ],",
+            "       },",
+            "   },",
+            ");",
+            "",
+            "if (isPendingGrant(grant)) {",
+            "   throw new Error('Expected non-interactive grant');",
+            "}"
+        ],
+        "description": "Request a quote grant"
     }
 }
