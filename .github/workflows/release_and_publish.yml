@@ -26,7 +26,7 @@ jobs:
               with:
                   commit: "chore(release): version packages"
                   title: "chore(release): version packages"
-                  version: pnpm ci:version
+                  version: pnpm changeset version && pnpm i --lockfile-only
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
