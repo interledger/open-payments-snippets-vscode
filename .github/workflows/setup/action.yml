@@ -1,0 +1,21 @@
+name: "Environment Setup"
+description: "Installs NodeJS, PNPM, dependencies and PNPM restores cache"
+
+runs:
+    using: "composite"
+    steps:
+        - name: Install PNPM
+          uses: pnpm/action-setup@v2
+          with:
+              version: 8
+              run_install: false
+
+        - name: Setup NodeJS
+          uses: actions/setup-node@v3
+          with:
+              node-version: "lts/hydrogen"
+              cache: "pnpm"
+
+        - name: Install dependencies
+          shell: bash
+          run: pnpm install --frozen-lockfile
