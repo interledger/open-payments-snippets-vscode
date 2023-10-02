@@ -1,0 +1,97 @@
+{
+    "Create unauthenticated client": {
+        "prefix": "op:uc",
+        "body": [
+            "import { createUnauthenticatedClient } from \"@interledger/open-payments\";",
+            "",
+            "const client = await createUnauthenticatedClient({});"
+        ],
+        "description": "Creates an unauthenticated OP client"
+    },
+    "Create authenticated client": {
+        "prefix": "op:ac",
+        "body": [
+            "import { createAuthenticatedClient } from \"@interledger/open-payments\";",
+            "",
+            "const client = await createAuthenticatedClient({",
+            "   keyId: ${1:'<KEY_ID>'},",
+            "   paymentPointer: ${2:'<PAYMENT_POINTER>'},",
+            "   privateKey: ${3:'<PRIVATE_KEY>'}",
+            "})"
+        ],
+        "description": "Creates an authenticated OP client"
+    },
+    "Get payment pointer information": {
+        "prefix": "op:pp",
+        "body": [
+            "const paymentPointer = await client.paymentPointer.get({",
+            "   url: ${1:'<PAYMENT_POINTER_URL>'},",
+            "})"
+        ],
+        "description": "Get payment pointer information"
+    },
+    "Get payment pointer keys": {
+        "prefix": "op:pp:keys",
+        "body": [
+            "const paymentPointerKeys = await client.paymentPointer.getKeys({",
+            "   url: ${1:'<PAYMENT_POINTER_URL>'},",
+            "})"
+        ],
+        "description": "Get payment pointer keys"
+    },
+    "Request a grant": {
+        "prefix": "op:grant",
+        "body": [
+            "const grant = await client.grant.request(",
+            "   {",
+            "       url: ${1:'<AUTH_SERVER>'},",
+            "   },",
+            "   {",
+            "       access_token: {",
+            "           access: [",
+            "               {",
+            "                   type: 'quote',",
+            "                   actions: ['read', 'read-all', 'create'],",
+            "               },",
+            "               {",
+            "                   type: 'incoming-payment',",
+            "                   actions: ['read', 'read-all', 'list', 'list-all', 'create', 'complete'],",
+            "               },",
+            "               {",
+            "                   identifier: ${2:'<PAYMENT_POINTER>'},",
+            "                   type: 'outgoing-payment',",
+            "                   actions: ['read', 'read-all', 'list', 'list-all', 'create'],",
+            "                   limits: {",
+            "                       debitAmount: {",
+            "                           value: '10000',",
+            "                           assetCode: 'USD',",
+            "                           assetScale: 2,",
+            "                       },",
+            "                       receiveAmount: {",
+            "                           value: '10000',",
+            "                           assetCode: 'USD',",
+            "                           assetScale: 2,",
+            "                       },",
+            "                   },",
+            "               },",
+            "           ],",
+            "       },",
+            "       interact: {",
+            "           start: ['redirect'],",
+            "           finish: {",
+            "               method: 'redirect',",
+            "               uri: ${3:'<REDIRECT_URI>'},",
+            "               nonce: ${4:'<NONCE>'},",
+            "           },",
+            "       },",
+            "   },",
+            ");",
+            "",
+            "if (!isPendingGrant(grant)) {",
+            "   throw new Error('Expected interactive grant');",
+            "}"
+        ],
+        "description": "Request a grant"
+    }
+    
+}
