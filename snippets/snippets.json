@@ -205,7 +205,7 @@
     },
 
     "requestQuoteGrant": {
-        "prefix": "op:grantRequestQuoteNonInteractive",
+        "prefix": "op:grant:quote",
         "body": [
             "const grant = await client.grant.request(",
             "   {",
