@@ -2,7 +2,7 @@
     "Create unauthenticated client": {
         "prefix": "opuc",
         "body": [
-            "import { createUnauthenticatedClient } from \"@interledger/open-payments\";"
+            "import { createUnauthenticatedClient } from \"@interledger/open-payments\";",
             "",
             "const client = createUnauthenticatedClient({});"
         ],

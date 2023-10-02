@@ -19,11 +19,11 @@ const getDependencyReleaseLine = async (changesets, dependenciesUpdated) => {
         (changeset) =>
             `- Updated dependencies${
                 changeset.commit ? ` [${changeset.commit}]` : ""
-            }`
+            }`,
     );
 
     const updatedDependenciesList = dependenciesUpdated.map(
-        (dependency) => `  - ${dependency.name}@${dependency.newVersion}`
+        (dependency) => `  - ${dependency.name}@${dependency.newVersion}`,
     );
 
     return [...changesetLinks, ...updatedDependenciesList].join("\n");
