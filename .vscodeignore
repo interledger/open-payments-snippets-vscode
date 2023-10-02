@@ -4,3 +4,6 @@
 vsc-extension-quickstart.md
 .changeset
 .github
+.gitattributes
+.prettierignore
+pnpm-lock.yaml

@@ -34,10 +34,9 @@ jobs:
               if: steps.changesets.outputs.hasChangesets == 'false'
               run: |
                   VERSION=$(jq -r .version package.json)
-                  DISPLAY_NAME=$(jq -r .displayName package.json)
+                  NAME=$(jq -r .name package.json)
                   echo "VERSION=v$VERSION" >> $GITHUB_ENV
-                  echo "DISPLAY_NAME=$DISPLAY_NAME" >> $GITHUB_ENV
-                  echo "RELEASE_NAME=$DISPLAY_NAME@$VERSION" >> $GITHUB_ENV
+                  echo "RELEASE_NAME=$NAME@$VERSION" >> $GITHUB_ENV
 
             - name: Check tag
               if: steps.changesets.outputs.hasChangesets == 'false'
