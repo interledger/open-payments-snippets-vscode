@@ -1,8 +1,29 @@
 {
   "name": "open-payments-sdk-snippets",
   "displayName": "Open Payments SDK Snippets",
-  "description": "Open Payments SDK Snippets",
-  "version": "0.0.1",
+  "description": "Open Payments SDK Code Snippets",
+  "version": "0.0.0",
+  "publisher": "InterledgerFoundation",
+  "icon": "images/logo.png",
+  "license": "MIT",
+  "keywords": [
+    "snippets",
+    "open payments",
+    "interledger",
+    "ilp",
+    "customizable",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/interledger/open-payments-snippets-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/interledger/open-payments-snippets-vscode/issues"
+  },
   "engines": {
     "vscode": "^1.82.0"
   },
@@ -12,13 +33,24 @@
   "contributes": {
     "snippets": [
       {
-        "language": "typescript",
-        "path": "./snippets/snippets.code-snippets"
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
       },
       {
-        "language": "javascript",
-        "path": "./snippets/snippets.code-snippets"
+        "language": "javascriptreact",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/snippets.json"
       }
     ]
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2"
   }
 }
