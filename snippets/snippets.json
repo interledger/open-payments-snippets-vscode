@@ -8,7 +8,6 @@
         ],
         "description": "Creates an unauthenticated OP client"
     },
-
     "createAuthenticatedClient": {
         "prefix": "op-ac",
         "body": [
@@ -22,7 +21,6 @@
         ],
         "description": "Creates an authenticated OP client"
     },
-
     "getPaymentPointerInformation": {
         "prefix": "op-pp",
         "body": [
@@ -32,7 +30,6 @@
         ],
         "description": "Get payment pointer information"
     },
-
     "getPaymentPointerKeys": {
         "prefix": "op-pp-keys",
         "body": [
@@ -42,7 +39,6 @@
         ],
         "description": "Get payment pointer keys"
     },
-
     "revokeGrant": {
         "prefix": "op-grant-revoke",
         "body": [
@@ -53,7 +49,6 @@
         ],
         "description": "Revoke a grant"
     },
-
     "requestGrant": {
         "prefix": "op-grant",
         "body": [
@@ -110,7 +105,6 @@
         ],
         "description": "Request a grant"
     },
-
     "continueGrant": {
         "prefix": "op-grant-continue",
         "body": [
@@ -126,7 +120,6 @@
         ],
         "description": "Continue a grant"
     },
-
     "requestIncomingPaymentGrant": {
         "prefix": "op-grant-ip",
         "body": [
@@ -154,7 +147,6 @@
         ],
         "description": "Request an incoming payment grant"
     },
-
     "requestOutgoingPaymentGrant": {
         "prefix": "op-grant-op",
         "body": [
@@ -203,7 +195,6 @@
         ],
         "description": "Request an outgoing payment grant"
     },
-
     "requestQuoteGrant": {
         "prefix": "op-grant-quote",
         "body": [
@@ -228,5 +219,25 @@
             "}"
         ],
         "description": "Request a quote grant"
+    },
+    "revokeToken": {
+        "prefix": "op-token-revoke",
+        "body": [
+            "await client.token.revoke({",
+            "\turl: ${1:\"<MANAGE_URL>\"},",
+            "\taccessToken: ${2:\"<ACCESS_TOKEN>\"},",
+            "});"
+        ],
+        "description": "Revoke a token"
+    },
+    "rotateToken": {
+        "prefix": "op-token-rotate",
+        "body": [
+            "const token = await client.token.rotate({",
+            "\turl: ${1:\"<MANAGE_URL>\"},",
+            "\taccessToken: ${2:\"<ACCESS_TOKEN>\"},",
+            "});"
+        ],
+        "description": "Rotate a token"
     }
 }
