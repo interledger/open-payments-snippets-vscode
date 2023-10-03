@@ -44,7 +44,7 @@ Every Open Payments SDK snippet starts with the "op-" prefix:
 
 ## Snippets
 
-{{ TABLE }}
+{{ SNIPPETS-TABLE }}
 
 ## Feedback and issues
 

@@ -52,6 +52,7 @@
     },
     "devDependencies": {
         "@changesets/cli": "^2.26.2",
+        "@types/node": "^20.8.2",
         "prettier": "^3.0.3",
         "tsx": "^3.13.0",
         "typescript": "^5.2.2"
@@ -59,7 +60,8 @@
     "scripts": {
         "format": "prettier . --check --cache --cache-location='node_modules/.cache/prettiercache'",
         "format:fix": "prettier . --write --cache --cache-location='node_modules/.cache/prettiercache' --log-level=warn",
-        "ci:version": "pnpm changeset version && pnpm i --lockfile-only"
+        "generate:readme": "tsx scripts/generate-readme.ts",
+        "ci:version": "pnpm generate:readme && pnpm changeset version && pnpm i --lockfile-only"
     },
     "prettier": {
         "bracketSameLine": false,
