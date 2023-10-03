@@ -231,14 +231,14 @@
         "description": "Revoke a token"
     },
     "rotateToken": {
-        "prefix": "token-rotate",
+        "prefix": "op-token-rotate",
         "body": [
             "const token = await client.token.rotate({",
             "\turl: ${1:\"<MANAGE_URL>\"},",
             "\taccessToken: ${2:\"<ACCESS_TOKEN>\"},",
             "});"
         ],
-        "description": ""
+        "description": "Rotate a token"
     },
     "createQuote": {
         "prefix": "op-quote-create",
@@ -256,7 +256,7 @@
         "description": "Create a quote without receive amount and debit amount"
     },
     "createQuoteWithReceiveAmount": {
-        "prefix": "quote-create-ra",
+        "prefix": "op-quote-create-ra",
         "body": [
             "const quote = await client.quote.create(",
             "\t{",
@@ -293,9 +293,9 @@
             "\t},",
             ");"
         ],
-        "description": ""
+        "description": "Create a quote with debit amount"
     },
-    "": {
+    "getQuote": {
         "prefix": "op-quote-get",
         "body": [
             "const quote = await client.quote.get({",
