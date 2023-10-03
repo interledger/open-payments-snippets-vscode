@@ -1,5 +1,14 @@
 # open-payments-snippets-vscode
 
+## 0.2.0
+
+### Minor Changes
+
+-   Add incoming payment snippets
+-   Add outgoing payment snippet
+-   Add token snippets
+-   Add quote snippets
+
 ## 0.1.2
 
 ### Patch Changes
