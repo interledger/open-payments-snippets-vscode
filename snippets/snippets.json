@@ -230,7 +230,7 @@
         ],
         "description": "Revoke a token"
     },
-    "rotateTokenoken": {
+    "rotateToken": {
         "prefix": "op-token-rotate",
         "body": [
             "const token = await client.token.rotate({",
