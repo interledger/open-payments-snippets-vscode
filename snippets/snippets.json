@@ -17,7 +17,7 @@
             "const client = await createAuthenticatedClient({",
             "\tkeyId: ${1:\"<KEY_ID>\"},",
             "\tpaymentPointer: ${2:\"<PAYMENT_POINTER>\"},",
-            "\tprivateKey: ${3:\"<PRIVATE_KEY>\"}",
+            "\tprivateKey: ${3:\"<PRIVATE_KEY>\"},",
             "});"
         ],
         "description": "Creates an authenticated OP client"
