@@ -253,7 +253,7 @@
             "\t},",
             ");"
         ],
-        "description": "Create a quote without `receiveAmount` and `debitAmount`"
+        "description": "Create a quote without receive amount and debit amount"
     },
     "createQuoteWithReceiveAmount": {
         "prefix": "op-quote-create-ra",
@@ -304,5 +304,79 @@
             "});"
         ],
         "description": "Get a quote"
+    },
+    "createIncomingPayment": {
+        "prefix": "op-ip-create",
+        "body": [
+            "const incomingPayment = await client.incomingPayment.create(",
+            "\t{",
+            "\t\tpaymentPointer: ${1:\"<PAYMENT_POINTER>\"},",
+            "\t\taccessToken: ${2:\"<INCOMING_PAYMENT_ACCESS_TOKEN>\"},",
+            "\t},",
+            "\t{",
+            "\t\tmetadata: {},",
+            "\t\texpiresAt: new Date().toISOString(),",
+            "\t},",
+            ");"
+        ],
+        "description": "Create an incoming payment without incoming amount"
+    },
+    "createIncomingPaymentWithIncomingAmount": {
+        "prefix": "op-ip-create-ia",
+        "body": [
+            "const incomingPayment = await client.incomingPayment.create(",
+            "\t{",
+            "\t\tpaymentPointer: ${1:\"<PAYMENT_POINTER>\"},",
+            "\t\taccessToken: ${2:\"<INCOMING_PAYMENT_ACCESS_TOKEN>\"},",
+            "\t},",
+            "\t{",
+            "\t\tincomingAmount: {",
+            "\t\t\tvalue: ${3:\"<VALUE>\"},",
+            "\t\t\tassetCode: ${4:\"<ASSET_CODE>\"},",
+            "\t\t\tassetScale: ${5:\"<ASSET_SCALE>\"},",
+            "\t\t},",
+            "\t\tmetadata: {},",
+            "\t\texpiresAt: new Date().toISOString(),",
+            "\t},",
+            ");"
+        ],
+        "description": "Create an incoming payment with incoming amount"
+    },
+    "completeIncomingPayment": {
+        "prefix": "op-ip-complete",
+        "body": [
+            "const incomingPayment = await client.incomingPayment.complete({",
+            "\turl: ${1:\"<INCOMING_PAYMENT_URL>\"},",
+            "\taccessToken: ${2:\"<INCOMING_PAYMENT_ACCESS_TOKEN>\"},",
+            "});"
+        ],
+        "description": "Complete an incoming payment"
+    },
+    "getIncomingPayment": {
+        "prefix": "op-ip-get",
+        "body": [
+            "const incomingPayment = await client.incomingPayment.get({",
+            "\turl: ${1:\"<INCOMING_PAYMENT_URL>\"},",
+            "\taccessToken: ${2:\"<INCOMING_PAYMENT_ACCESS_TOKEN>\"},",
+            "});"
+        ],
+        "description": "Get an incoming payment"
+    },
+    "listIncomingPayments": {
+        "prefix": "op-ip-list",
+        "body": [
+            "const incomingPayments = await client.incomingPayment.list(",
+            "\t{",
+            "\t\tpaymentPointer: ${1:\"<PAYMENT_POINTER>\"},",
+            "\t\taccessToken: ${2:\"<INCOMING_PAYMENT_ACCESS_TOKEN>\"},",
+            "\t},",
+            "\t{",
+            "\t\tfirst: ${3:10},",
+            "\t\tlast: ${4:undefined},",
+            "\t\tcursor: ${5:undefined},",
+            "\t},",
+            ");"
+        ],
+        "description": "List incoming payments"
     }
 }
