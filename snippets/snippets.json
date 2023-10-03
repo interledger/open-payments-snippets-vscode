@@ -399,8 +399,8 @@
         "prefix": "op-op-get",
         "body": [
             "const outgoingPayment = await client.outgoingPayment.get({",
-            "\t\turl: ${1:\"<OUTGOING_PAYMENT_URL>\"},",
-            "\t\taccessToken: ${2:\"<OUTGOING_PAYMENT_ACCESS_TOKEN>\"},",
+            "\turl: ${1:\"<OUTGOING_PAYMENT_URL>\"},",
+            "\taccessToken: ${2:\"<OUTGOING_PAYMENT_ACCESS_TOKEN>\"},",
             "});"
         ],
         "description": "Get an outgoing payment"
