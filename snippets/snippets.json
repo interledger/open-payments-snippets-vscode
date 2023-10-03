@@ -239,5 +239,72 @@
             "});"
         ],
         "description": "Rotate a token"
+    },
+    "createQuote": {
+        "prefix": "op-quote-create",
+        "body": [
+            "const quote = await client.quote.create(",
+            "\t{",
+            "\t\tpaymentPointer: ${1:\"<PAYMENT_POINTER>\"},",
+            "\t\taccessToken: ${2:\"<QUOTE_ACCESS_TOKEN>\"},",
+            "\t},",
+            "\t{",
+            "\t\treceiver: ${3:\"<INCOMING_PAYMENT_URL>\"},",
+            "\t},",
+            ");"
+        ],
+        "description": "Create a quote without `receiveAmount` and `debitAmount`"
+    },
+    "createQuoteWithReceiveAmount": {
+        "prefix": "op-quote-create-ra",
+        "body": [
+            "const quote = await client.quote.create(",
+            "\t{",
+            "\t\tpaymentPointer: ${1:\"<PAYMENT_POINTER>\"},",
+            "\t\taccessToken: ${2:\"<QUOTE_ACCESS_TOKEN>\"},",
+            "\t},",
+            "\t{",
+            "\t\treceiver: ${3:\"<INCOMING_PAYMENT_URL>\"},",
+            "\t\treceiveAmount: {",
+            "\t\t\tvalue: ${4:\"<VALUE>\"},",
+            "\t\t\tassetCode: ${5:\"<ASSET_CODE>\"},",
+            "\t\t\tassetScale: ${6:\"<ASSET_SCALE>\"},",
+            "\t\t},",
+            "\t},",
+            ");"
+        ],
+        "description": "Create a quote with receive amount"
+    },
+    "createQuoteWithDebitAmount": {
+        "prefix": "op-quote-create-da",
+        "body": [
+            "const quote = await client.quote.create(",
+            "\t{",
+            "\t\tpaymentPointer: ${1:\"<PAYMENT_POINTER>\"},",
+            "\t\taccessToken: ${2:\"<QUOTE_ACCESS_TOKEN>\"},",
+            "\t},",
+            "\t{",
+            "\t\treceiver: ${3:\"<INCOMING_PAYMENT_URL>\"},",
+            "\t\tdebitAmount: {",
+            "\t\t\tvalue: ${4:\"<VALUE>\"},",
+            "\t\t\tassetCode: ${5:\"<ASSET_CODE>\"},",
+            "\t\t\tassetScale: ${6:\"<ASSET_SCALE>\"},",
+            "\t\t},",
+            "\t},",
+            ");"
+        ],
+        "description": "Create a quote with debit amount"
+    },
+    "getQuote": {
+        "prefix": "op-quote-get",
+        "body": [
+            "const quote = await client.quote.get(",
+            "\t{",
+            "\t\turl: ${1:\"<QUOTE_URL>\"},",
+            "\t\taccessToken: ${2:\"<QUOTE_ACCESS_TOKEN>\"},",
+            "\t},",
+            ");"
+        ],
+        "description": "Get a quote"
     }
 }
