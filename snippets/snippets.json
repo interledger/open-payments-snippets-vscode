@@ -298,12 +298,10 @@
     "getQuote": {
         "prefix": "op-quote-get",
         "body": [
-            "const quote = await client.quote.get(",
-            "\t{",
-            "\t\turl: ${1:\"<QUOTE_URL>\"},",
-            "\t\taccessToken: ${2:\"<QUOTE_ACCESS_TOKEN>\"},",
-            "\t},",
-            ");"
+            "const quote = await client.quote.get({",
+            "\turl: ${1:\"<QUOTE_URL>\"},",
+            "\taccessToken: ${2:\"<QUOTE_ACCESS_TOKEN>\"},",
+            "});"
         ],
         "description": "Get a quote"
     }
