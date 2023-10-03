@@ -7,3 +7,5 @@ vsc-extension-quickstart.md
 .gitattributes
 .prettierignore
 pnpm-lock.yaml
+templates
+scripts
