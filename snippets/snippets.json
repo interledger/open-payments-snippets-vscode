@@ -1,6 +1,6 @@
 {
     "createUnauthenticatedClient": {
-        "prefix": "op:uc",
+        "prefix": "op-uc",
         "body": [
             "import { createUnauthenticatedClient } from \"@interledger/open-payments\";",
             "",
@@ -10,7 +10,7 @@
     },
 
     "createAuthenticatedClient": {
-        "prefix": "op:ac",
+        "prefix": "op-ac",
         "body": [
             "import { createAuthenticatedClient } from \"@interledger/open-payments\";",
             "",
@@ -24,7 +24,7 @@
     },
 
     "getPaymentPointerInformation": {
-        "prefix": "op:pp",
+        "prefix": "op-pp",
         "body": [
             "const paymentPointer = await client.paymentPointer.get({",
             "   url: ${1:'<PAYMENT_POINTER_URL>'},",
@@ -34,7 +34,7 @@
     },
 
     "getPaymentPointerKeys": {
-        "prefix": "op:pp:keys",
+        "prefix": "op-pp-keys",
         "body": [
             "const paymentPointerKeys = await client.paymentPointer.getKeys({",
             "   url: ${1:'<PAYMENT_POINTER_URL>'},",
@@ -44,7 +44,7 @@
     },
 
     "revokeGrant": {
-        "prefix": "op:grant:revoke",
+        "prefix": "op-grant-revoke",
         "body": [
             "await client.grant.cancel({",
             "    accessToken: ${1:'<CONTINUE_ACCESS_TOKEN>'},",
@@ -55,7 +55,7 @@
     },
 
     "requestGrant": {
-        "prefix": "op:grant",
+        "prefix": "op-grant",
         "body": [
             "import { isPendingGrant } from \"@interledger/open-payments\";",
             "",
@@ -112,7 +112,7 @@
     },
 
     "continueGrant": {
-        "prefix": "op:grant:continue",
+        "prefix": "op-grant-continue",
         "body": [
             "const grant = await client.grant.continue(",
             "   {",
@@ -128,7 +128,7 @@
     },
 
     "requestIncomingPaymentGrant": {
-        "prefix": "op:grant:ip",
+        "prefix": "op-grant-ip",
         "body": [
             "import { isPendingGrant } from \"@interledger/open-payments\";",
             "",
@@ -156,7 +156,7 @@
     },
 
     "requestOutgoingPaymentGrant": {
-        "prefix": "op:grant:op",
+        "prefix": "op-grant-op",
         "body": [
             "import { isPendingGrant } from \"@interledger/open-payments\";",
             "",
@@ -205,7 +205,7 @@
     },
 
     "requestQuoteGrant": {
-        "prefix": "op:grant:quote",
+        "prefix": "op-grant-quote",
         "body": [
             "const grant = await client.grant.request(",
             "   {",
