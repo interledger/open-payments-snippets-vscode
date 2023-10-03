@@ -1,5 +1,11 @@
 # open-payments-snippets-vscode
 
+## 0.1.2
+
+### Patch Changes
+
+-   Fix README
+
 ## 0.1.1
 
 ### Patch Changes
