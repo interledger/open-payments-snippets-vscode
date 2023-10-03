@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - "!main"
+
     pull_request:
         types:
             - opened
@@ -14,8 +15,8 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    format:
-        name: Format
+    format-lint:
+        name: Format & Lint
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -26,3 +27,6 @@ jobs:
 
             - name: Check formatting
               run: pnpm format
+
+            - name: Lint
+              run: pnpm lint
