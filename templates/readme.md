@@ -38,7 +38,9 @@ Every Open Payments SDK snippet starts with the "op-" prefix:
 -   op-grant-continue
 
 > [!NOTE]
-> You don't need to type any dashes or the full keyword: "ogc" -> "op-grant-continue" snippet
+> You don't need to type any dashes or the full keyword:
+>
+> -   "ogc" -> "op-grant-continue" snippet
 
 ## Snippets
 
@@ -52,4 +54,4 @@ and contributions!
 
 ## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](./LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
