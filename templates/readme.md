@@ -37,10 +37,10 @@ Every Open Payments SDK snippet starts with the "op-" prefix:
 -   op-pp
 -   op-grant-continue
 
-> [!NOTE]
-> You don't need to type any dashes or the full keyword:
->
-> -   "ogc" -> "op-grant-continue" snippet
+You don't need to type any dashes or the full keyword. You can use some alternatives. For example:
+
+-   `ogc` -> `op-grant-continue` snippet
+-   `ograntc` -> `op-grant-continue` snippet
 
 ## Snippets
 
