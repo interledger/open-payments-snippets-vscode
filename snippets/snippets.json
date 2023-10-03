@@ -107,7 +107,7 @@
             "if (!isPendingGrant(grant)) {",
             "\tthrow new Error(\"Expected interactive grant\");",
             "}"
-        ],        
+        ],
         "description": "Request a grant"
     },
 
@@ -125,7 +125,7 @@
             ");"
         ],
         "description": "Continue a grant"
-    },    
+    },
 
     "requestIncomingPaymentGrant": {
         "prefix": "op-grant-ip",
@@ -154,7 +154,7 @@
         ],
         "description": "Request an incoming payment grant"
     },
-    
+
     "requestOutgoingPaymentGrant": {
         "prefix": "op-grant-op",
         "body": [
@@ -202,7 +202,7 @@
             "}"
         ],
         "description": "Request an outgoing payment grant"
-    },    
+    },
 
     "requestQuoteGrant": {
         "prefix": "op-grant-quote",
@@ -228,5 +228,5 @@
             "}"
         ],
         "description": "Request a quote grant"
-    }    
+    }
 }
