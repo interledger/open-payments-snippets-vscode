@@ -1,5 +1,15 @@
 # open-payments-snippets-vscode
 
+## 0.1.0
+
+### Minor Changes
+
+-   Change keywords format
+
+### Patch Changes
+
+-   Fix snippets body format
+
 ## 0.0.2
 
 ### Patch Changes
