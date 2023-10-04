@@ -378,5 +378,48 @@
             ");"
         ],
         "description": "List incoming payments"
+    },
+    "createOutgoingPayment": {
+        "prefix": "op-op-create",
+        "body": [
+            "const outgoingPayment = await client.outgoingPayment.create(",
+            "\t{",
+            "\t\tpaymentPointer: ${1:\"<PAYMENT_POINTER>\"},",
+            "\t\taccessToken: ${2:\"<OUTGOING_PAYMENT_ACCESS_TOKEN>\"},",
+            "\t},",
+            "\t{",
+            "\t\tmetadata: {},",
+            "\t\tquoteId: ${3:\"<QUOTE_URL>\"},",
+            "\t},",
+            ");"
+        ],
+        "description": "Create an outgoing payment"
+    },
+    "getOutgoingPayment": {
+        "prefix": "op-op-get",
+        "body": [
+            "const outgoingPayment = await client.outgoingPayment.get({",
+            "\turl: ${1:\"<OUTGOING_PAYMENT_URL>\"},",
+            "\taccessToken: ${2:\"<OUTGOING_PAYMENT_ACCESS_TOKEN>\"},",
+            "});"
+        ],
+        "description": "Get an outgoing payment"
+    },
+    "listOutgoingPayments": {
+        "prefix": "op-op-list",
+        "body": [
+            "const outgoingPayments = await client.outgoingPayment.list(",
+            "\t{",
+            "\t\tpaymentPointer: ${1:\"<PAYMENT_POINTER>\"},",
+            "\t\taccessToken: ${2:\"<OUTGOING_PAYMENT_ACCESS_TOKEN>\"},",
+            "\t},",
+            "\t{",
+            "\t\tfirst: ${3:10},",
+            "\t\tlast: ${4:undefined},",
+            "\t\tcursor: ${5:undefined},",
+            "\t},",
+            ");"
+        ],
+        "description": "List outgoing payments"
     }
 }

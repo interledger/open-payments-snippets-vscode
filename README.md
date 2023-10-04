@@ -44,18 +44,32 @@ You don't need to type any dashes or the full keyword. You can use some alternat
 
 ## Snippets
 
-| Keyword           | Description                          |
-| ----------------- | ------------------------------------ |
-| op-uc             | Creates an unauthenticated OP client |
-| op-ac             | Creates an authenticated OP client   |
-| op-pp             | Get payment pointer information      |
-| op-pp-keys        | Get payment pointer keys             |
-| op-grant-revoke   | Revoke a grant                       |
-| op-grant          | Request a grant                      |
-| op-grant-continue | Continue a grant                     |
-| op-grant-ip       | Request an incoming payment grant    |
-| op-grant-op       | Request an outgoing payment grant    |
-| op-grant-quote    | Request a quote grant                |
+| Keyword            | Description                                            |
+| ------------------ | ------------------------------------------------------ |
+| op-uc              | Creates an unauthenticated OP client                   |
+| op-ac              | Creates an authenticated OP client                     |
+| op-pp              | Get payment pointer information                        |
+| op-pp-keys         | Get payment pointer keys                               |
+| op-grant-revoke    | Revoke a grant                                         |
+| op-grant           | Request a grant                                        |
+| op-grant-continue  | Continue a grant                                       |
+| op-grant-ip        | Request an incoming payment grant                      |
+| op-grant-op        | Request an outgoing payment grant                      |
+| op-grant-quote     | Request a quote grant                                  |
+| op-token-revoke    | Revoke a token                                         |
+| op-token-rotate    | Rotate a token                                         |
+| op-quote-create    | Create a quote without receive amount and debit amount |
+| op-quote-create-ra | Create a quote with receive amount                     |
+| op-quote-create-da | Create a quote with debit amount                       |
+| op-quote-get       | Get a quote                                            |
+| op-ip-create       | Create an incoming payment without incoming amount     |
+| op-ip-create-ia    | Create an incoming payment with incoming amount        |
+| op-ip-complete     | Complete an incoming payment                           |
+| op-ip-get          | Get an incoming payment                                |
+| op-ip-list         | List incoming payments                                 |
+| op-op-create       | Create an outgoing payment                             |
+| op-op-get          | Get an outgoing payment                                |
+| op-op-list         | List outgoing payments                                 |
 
 ## Feedback and issues
 
