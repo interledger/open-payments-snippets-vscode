@@ -17,6 +17,7 @@
         "typescript",
         "typescriptreact"
     ],
+    "homepage": "https://github.com/interledger/open-payments-snippets-vscode",
     "repository": {
         "type": "git",
         "url": "https://github.com/interledger/open-payments-snippets-vscode"
@@ -25,7 +26,7 @@
         "url": "https://github.com/interledger/open-payments-snippets-vscode/issues"
     },
     "engines": {
-        "vscode": "^1.82.0"
+        "vscode": "^1.60.0"
     },
     "categories": [
         "Snippets"
