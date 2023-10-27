@@ -15,29 +15,29 @@
             "",
             "const client = await createAuthenticatedClient({",
             "\tkeyId: ${1:\"<KEY_ID>\"},",
-            "\tpaymentPointer: ${2:\"<PAYMENT_POINTER>\"},",
+            "\twalletAddressUrl: ${2:\"<WALLET_ADDRESS_URL>\"},",
             "\tprivateKey: ${3:\"<PRIVATE_KEY>\"},",
             "});"
         ],
         "description": "Creates an authenticated OP client"
     },
-    "getPaymentPointerInformation": {
-        "prefix": "op-pp",
+    "getWalletAddressInformation": {
+        "prefix": "op-wa",
         "body": [
-            "const paymentPointer = await client.paymentPointer.get({",
-            "\turl: ${1:\"<PAYMENT_POINTER_URL>\"},",
+            "const walletAddress = await client.walletAddress.get({",
+            "\turl: ${1:\"<WALLET_ADDRESS_URL>\"},",
             "});"
         ],
-        "description": "Get payment pointer information"
+        "description": "Get wallet address information"
     },
-    "getPaymentPointerKeys": {
-        "prefix": "op-pp-keys",
+    "getWalletAddressKeys": {
+        "prefix": "op-wa-keys",
         "body": [
-            "const paymentPointerKeys = await client.paymentPointer.getKeys({",
-            "\turl: ${1:\"<PAYMENT_POINTER_URL>\"},",
+            "const walletAddressKeys = await client.walletAddress.getKeys({",
+            "\turl: ${1:\"<WALLET_ADDRESS_URL>\"},",
             "});"
         ],
-        "description": "Get payment pointer keys"
+        "description": "Get wallet address keys"
     },
     "revokeGrant": {
         "prefix": "op-grant-revoke",
