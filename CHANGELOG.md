@@ -1,5 +1,11 @@
 # open-payments-snippets-vscode
 
+## 1.0.0
+
+### Major Changes
+
+-   Update snippets (OP SDK v6)
+
 ## 0.3.0
 
 ### Minor Changes
