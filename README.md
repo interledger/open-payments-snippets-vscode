@@ -4,7 +4,7 @@
     </p>
     <h1 align="center"><b>Open Payments SDK Snippets</b></h1>
     <p align="center">
-        <b>Updated for Open Payments Node SDK version 3.2.0</b>
+        <b>Updated for Open Payments Node SDK version 6</b>
     </p>
     <br />
     <br />
@@ -34,8 +34,8 @@ ext install open-payments-snippets-vscode
 
 Every Open Payments SDK snippet starts with the "op-" prefix:
 
--   op-pp
--   op-grant-continue
+-   `op-pp`
+-   `op-grant-continue`
 
 You don't need to type any dashes or the full keyword. You can use some alternatives. For example:
 
