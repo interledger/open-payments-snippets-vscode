@@ -2,7 +2,7 @@
     "name": "open-payments-snippets-vscode",
     "displayName": "Open Payments SDK Snippets",
     "description": "Open Payments SDK Code Snippets",
-    "version": "0.3.0",
+    "version": "1.0.0",
     "publisher": "InterledgerFoundation",
     "icon": "images/logo.png",
     "license": "MIT",

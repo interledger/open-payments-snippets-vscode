@@ -48,8 +48,8 @@ You don't need to type any dashes or the full keyword. You can use some alternat
 | ------------------ | ------------------------------------------------------ |
 | op-uc              | Creates an unauthenticated OP client                   |
 | op-ac              | Creates an authenticated OP client                     |
-| op-pp              | Get payment pointer information                        |
-| op-pp-keys         | Get payment pointer keys                               |
+| op-wa              | Get wallet address information                         |
+| op-wa-keys         | Get wallet address keys                                |
 | op-grant-revoke    | Revoke a grant                                         |
 | op-grant           | Request a grant                                        |
 | op-grant-continue  | Continue a grant                                       |
